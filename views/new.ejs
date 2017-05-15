@@ -1,0 +1,20 @@
+<% include partials/header %>
+
+<h1>Add a new post</h1>
+
+<form action="/posts" method="POST">
+    <div>
+        <input type="text" name="title" placeholder="Title">
+    </div>
+    <div>
+        <input type="text" name="image" placeholder="Image url">
+    </div>
+    <div>
+        <textarea type="text" name="content" placeholder="Content"></textarea>
+    </div>
+    <div>
+        <button>Submit</button>
+    </div>
+</form>
+
+<% include partials/footer %>
