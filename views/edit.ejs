@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+<form action="/posts/<%=post._id%>?_method=PUT" method="POST">       
+    <div>
+        <input type="text" name="post[title]" value="<%=post.title%>">
+    </div>
+    <div>
+        <input type="text" name="post[image]" value="<%=post.image%>">
+    </div>
+    <div>
+        <textarea type="text" name="post[content]" placeholder="Content"><%=post.content%></textarea>
+    </div>
+    <div>
+        <button>Submit</button>
+    </div>
+</form>
+
+
+<% include partials/footer %>

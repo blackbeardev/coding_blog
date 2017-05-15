@@ -102,6 +102,39 @@ app.get("/posts/:id", function(req, res) {
     });
 });
 
+//EDIT ROUTE
+app.get("/posts/:id/edit", function(req, res) {
+    Post.findById(req.params.id, function(err, foundPost) {
+        if(err) {
+            res.redirect("/posts");
+        } else {
+            res.render("edit", {post: foundPost});
+        }
+    });
+});
+
+//UPDATE route
+app.put("/posts/:id", function(req, res) {
+    Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedBlog) {
+        if(err) {
+            res.redirect("/posts");
+        } else {
+            res.redirect("/posts/" + req.params.id);
+        }
+    });
+});
+
+//DELETE route
+app.delete("/posts/:id", function(req, res) {
+    Post.findByIdAndRemove(req.params.id, function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            res.redirect("/posts");
+        }
+    });
+});
+
 
 
 
